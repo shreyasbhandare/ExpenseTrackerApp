@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5d4bccb885c8a89d066ecb6c4addb553a99a79a2">
+        <dex dex="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_1e59a23c760397c44b329fa7d3e3a7bed5dc45ec/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.0.1_a357f1f749ac6bb99c7534a04bde7d896ae3985a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.0.1_606ef2139d88d9664635edce36c3eef0ecc121e1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1c1a49aaab6077e2d66823f2679c4f9580f6ec59">
+        <dex dex="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_6433eedd69a8d8d07080b0112efe3c4ce1dddf57/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.0.1_822ae8f0d8780579a418944129fa0ecafa003879/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.1_b5387d10cf9cf9fbc3c20c42e9dc067f84151134/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6473956299e0a1ea731443c952fa2a0c4a584820">
+        <dex dex="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ea0b8eb95e7ecfe59f1b436513bdb03b49763be1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/exploded-aar/com.rmtheis/tess-two/5.4.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="921b1c4306b10e7de53574523eb7f7144bd0707f">
+        <dex dex="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.rmtheis-tess-two-5.4.1_d0adfb96441e278138da958774b8e0c05bedd6e3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="bb0ac3f3ee2d71854501cc28e52cc84a20209b41">
+        <dex dex="/home/shreyas/AndroidStudioProjects/Tess-two_example-master/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v13-23.0.0_b9cde33a56d888e23e5dab2fbaee470b552c563f/classes.dex" />
+    </item>
+
+</items>
