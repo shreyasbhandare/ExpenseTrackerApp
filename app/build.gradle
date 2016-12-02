@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.ashomok.tesseractsample"
+        applicationId "com.ExpenseTracker.GradTeam777"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 4
@@ -19,6 +19,12 @@ android {
     }
 }
 
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
@@ -26,4 +32,5 @@ dependencies {
     compile 'com.rmtheis:tess-two:5.4.1'
     compile 'com.android.support:support-v13:23.0.0'
     compile project(':scanlibrary')
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.1'
 }

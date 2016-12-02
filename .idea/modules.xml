@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Tess-two_example-master.iml" filepath="$PROJECT_DIR$/Tess-two_example-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Expense Tracker.iml" filepath="$PROJECT_DIR$/Expense Tracker.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/scanlibrary/scanlibrary.iml" filepath="$PROJECT_DIR$/scanlibrary/scanlibrary.iml" />
     </modules>
