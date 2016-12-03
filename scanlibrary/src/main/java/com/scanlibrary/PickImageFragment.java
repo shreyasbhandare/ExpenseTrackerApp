@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.scanlibrary.UriClass.filePath;
+
 /**
  * Created by jhansi on 04/04/15.
  */
@@ -126,6 +128,7 @@ public class PickImageFragment extends Fragment {
                 switch (requestCode) {
                     case ScanConstants.START_CAMERA_REQUEST_CODE:
                         bitmap = getBitmap(fileUri);
+                        filePath = fileUri;
                         break;
 
                     case ScanConstants.PICKFILE_REQUEST_CODE:

@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="942adff64ed9a44b08acbf1222df39ea168801d0">
+        sha1="6e1ea6d93dcf05cafe077514beed51c2f7fa7d5d">
         <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d5330c6037fff7038b90e9cb27e86c08a883c6da/classes.dex" />
     </item>
     <item

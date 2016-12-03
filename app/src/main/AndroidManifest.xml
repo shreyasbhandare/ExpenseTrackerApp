@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".scanImage" />
-        <activity android:name=".Pop" />
+        <activity android:name=".Pop" android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".showExpenses"></activity>
     </application>
 

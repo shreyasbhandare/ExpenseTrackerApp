@@ -35,7 +35,8 @@ public class scanImage extends AppCompatActivity {
     private Button cameraButton;
     private Button mediaButton;
     private TextView scannedTextView;
-    private int Total;
+    public static double Total;
+    private parseText parsetext;
 
     Uri outputFileUri, rawFileUri;
     private static final String TAG = "MainActivity";
@@ -93,8 +94,9 @@ public class scanImage extends AppCompatActivity {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 getContentResolver().delete(uri, null, null);
                 outputFileUri = SaveImage(bitmap);
-                startOCR(outputFileUri);
+                Total = startOCR(outputFileUri);
 
+                // start pop up activity for reviewing scanned Total
                 startActivity(new Intent(this,Pop.class));
             } catch (IOException e) {
                 e.printStackTrace();
@@ -128,33 +130,6 @@ public class scanImage extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*
-    // start camera activity
-    private void startCameraActivity() {
-        try {
-            String IMGS_PATH = Environment.getExternalStorageDirectory().toString() + "/OCR/Receipts";
-            prepareDirectory(IMGS_PATH);
-
-            Random generator = new Random();
-            int n = 10000;
-            n = generator.nextInt(n);
-
-            String img_path = IMGS_PATH + "/receipt-"+ n +".jpg";
-
-            rawFileUri = Uri.fromFile(new File(img_path));
-
-            final Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, rawFileUri);
-
-            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            }
-        } catch (Exception e) {
-            Log.e(TAG, e.getMessage());
-        }
-    }
-    */
-
     public String detectText(Bitmap bitmap) {
 
         //TessDataManager.initTessTrainedData(context);
@@ -185,20 +160,21 @@ public class scanImage extends AppCompatActivity {
         }
     }
 
-    public void startOCR(Uri imgUri) {
+    public double startOCR(Uri imgUri) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inSampleSize = 4; // 1 - means max size. 4 - means maxsize/4 size. Don't use value <4, because you need more memory in the heap to store your data.
             Bitmap bitmap = BitmapFactory.decodeFile(imgUri.getPath(), options);
 
             String result = detectText(bitmap);
-            parseText parsetext = new parseText(result);
-            Total = parsetext.parseRawText();
-            scannedTextView.setText(String.valueOf(Total));
+            parsetext = new parseText(result);
+
+            //scannedTextView.setText(String.valueOf(Total));
 
         } catch (Exception e) {
             Log.e(TAG, e.getMessage());
         }
+        return parsetext.parseRawText();
     }
 
     public Uri SaveImage(Bitmap finalBitmap) {
