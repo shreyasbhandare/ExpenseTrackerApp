@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bottom_background_color">
+
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:id="@+id/billImageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Record Date:"
+        android:id="@+id/recordTextView"
+        android:layout_alignParentTop="true"
+        android:textSize="20dp"
+        android:layout_toEndOf="@+id/billImageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount: $"
+        android:id="@+id/amountTextView"
+        android:textSize="20dp"
+        android:layout_below="@+id/recordTextView"
+        android:layout_toEndOf="@+id/billImageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:textSize="20dp"
+        android:id="@+id/showDateView"
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/recordTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:textSize="20dp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/showAmountView"
+        android:layout_alignBottom="@+id/amountTextView"
+        android:layout_toEndOf="@+id/amountTextView" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox"
+        android:focusable="false"
+        android:layout_below="@+id/showAmountView"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

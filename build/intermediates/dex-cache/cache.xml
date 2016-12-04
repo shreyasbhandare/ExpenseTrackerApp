@@ -3,33 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="889fdfb5866c109f4c6d44db3f4cd46981b466ae">
-        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b6191ed8fc6cf71999f85a4dd9f572bc59c350ec/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/shreyas/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.0.1_a357f1f749ac6bb99c7534a04bde7d896ae3985a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/shreyas/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v3.0.1/369f9aa48a629b4e92557b37326f42dc3de796e4/MPAndroidChart-v3.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="369f9aa48a629b4e92557b37326f42dc3de796e4">
-        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/MPAndroidChart-v3.0.1_394cefe34f1405bed8d7cab8d6c3e5eb404d2d8f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -43,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="6e1ea6d93dcf05cafe077514beed51c2f7fa7d5d">
+        sha1="02133e944df191f695544d7a247715882059d8ef">
         <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d5330c6037fff7038b90e9cb27e86c08a883c6da/classes.dex" />
     </item>
     <item
@@ -66,15 +39,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.0.1_230d72936b93d7ff2e5fcce32cc658628fce4821/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.rmtheis/tess-two/5.4.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -90,6 +54,51 @@
         revision="23.0.3"
         sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
         <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.1_10f72125eed52e5fe52d23bd136d8d2518063e0c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c42ca12277ab1dfdd39ee855e620810aeb1b566a">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b6191ed8fc6cf71999f85a4dd9f572bc59c350ec/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.0.1_a357f1f749ac6bb99c7534a04bde7d896ae3985a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v3.0.1/369f9aa48a629b4e92557b37326f42dc3de796e4/MPAndroidChart-v3.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="369f9aa48a629b4e92557b37326f42dc3de796e4">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/MPAndroidChart-v3.0.1_394cefe34f1405bed8d7cab8d6c3e5eb404d2d8f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Documents/Expense Tracker/libs/Jama-1.0.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4e7b3b81770450a21b4295e27c2ccb802ab537e1">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/2/Jama-1.0.3_0e804df792c5e4c2c31c698ae145ccb7e2bbb7c4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.0.1_230d72936b93d7ff2e5fcce32cc658628fce4821/classes.dex" />
     </item>
 
 </items>

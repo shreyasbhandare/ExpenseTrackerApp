@@ -133,6 +133,7 @@ public class PickImageFragment extends Fragment {
 
                     case ScanConstants.PICKFILE_REQUEST_CODE:
                         bitmap = getBitmap(data.getData());
+                        filePath = data.getData();
                         break;
                 }
             } catch (Exception e

@@ -32,23 +32,27 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    static final int MY_REQUEST_CODE = 1;
-    static final int SCAN_IMAGE = 3;
-    static final int SHOW_EXP = 4;
+
+    static final int MY_REQUEST_CODE = 1; // code for camera permissions
+    static final int SCAN_IMAGE = 3; // code for scan image activity
+    static final int SHOW_EXP = 4; // code for predict expenses activity
+    static final int SHOW_BILL = 5; // code for show bill list activity
+    static final int ADD_MAN = 6; // code for add manually bills activity
 
     public static final String DATA_PATH = Environment.getExternalStorageDirectory().toString()+ "/OCR/";
     public static final String lang = "eng";
 
-    Button btn2;
-    Button btn;
+    Button scanBill, predExp, showBills, addMan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn2 = (Button) findViewById(R.id.scan_btn);
-        btn = (Button) findViewById(R.id.show_exp);
+        scanBill = (Button) findViewById(R.id.scan_btn);
+        predExp = (Button) findViewById(R.id.show_exp);
+        showBills = (Button) findViewById(R.id.show_bills);
+        addMan = (Button) findViewById(R.id.add_man);
 
         isStoragePermissionGranted();
 
@@ -60,8 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
-        btn2.setOnClickListener(new View.OnClickListener() {
+        scanBill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,scanImage.class);
@@ -69,11 +72,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        predExp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, showExpenses.class);
                 startActivityForResult(intent,SHOW_EXP);
+            }
+        });
+
+        showBills.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, showBillList.class);
+                startActivityForResult(intent,SHOW_BILL);
+            }
+        });
+
+        addMan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, addManually.class);
+                startActivityForResult(intent,ADD_MAN);
             }
         });
     }
