@@ -10,9 +10,10 @@ import java.util.Arrays;
 public class parseText {
     private String rawText;
     private double total;
-    private String[] trainArray = {"total","otal","tal","tot","tota","ota","sumom","mom"};
+    private String[] trainArray = {"total","subtotal","otal","tal","tot","tota","ota","sub","subt","subto","sumom","mom"};
     //private ArrayList<String>subString = new ArrayList<Integer>(Arrays.asList(""));
 
+    //constructor
     public parseText(String rawText){
         this.rawText = rawText;
         total = -1;
@@ -23,17 +24,20 @@ public class parseText {
         for(int i=0; i<lines.length; i++){    // iterate through each line
             String[] element = lines[i].split("\\s+");  // split each line based on blank spaces (tabs, spaces etc)
             for(int j=0;j<element.length;j++){
-                //element[j].replaceAll()
                 //if(element[j].equalsIgnoreCase("Total") || element[j].equalsIgnoreCase("SubTotal")){
+                // if element contains TOTAL/SUBTOTAL or subtring of it
                 if(contais(element[j])){
+                    // if next element is $ then skip and check for element after that and convert to double
                     if(element[j+1]=="$"){
                         if(isDouble(element[j+2])){
                             total = Double.parseDouble(element[j+2]);
                             return total;
                         }
                     }
+                    // else remove $ from the amount and conver to double
                     else{
-                        element[j+1] = element[j+1].substring(1);
+                        if(element[j+1].substring(0,1).equals("$"))
+                            element[j+1] = element[j+1].substring(1);
                         if(isDouble(element[j+1])){
                             total = Double.parseDouble(element[j+1]);
                             return total;
@@ -45,6 +49,7 @@ public class parseText {
         return total;
     }
 
+    // functions to check if str contains TOTAL/SUBTOTAL or subtring of it
     private boolean contais(String str){
         for(int i=0;i<trainArray.length;i++){
             if(str.toLowerCase().contains(trainArray[i].toLowerCase())){
@@ -54,6 +59,7 @@ public class parseText {
         return false;
     }
 
+    // check if the string contains double
     boolean isDouble(String str) {
         try {
             Double.parseDouble(str);

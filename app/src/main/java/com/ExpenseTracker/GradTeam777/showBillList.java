@@ -53,8 +53,8 @@ public class showBillList extends AppCompatActivity {
         help.insertEntry(date3,amt3,imageUrl3);*/
 
         lView = (ListView) findViewById(R.id.ListView1);
-
         adapter = new ShowExpensesAdapter(this, myList);
+
         //take from db and
         loadListData();
         lView.setAdapter(adapter);
@@ -63,7 +63,7 @@ public class showBillList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //go to image zoom activity with the path of the image
-                Intent intent = new Intent(showBillList.this, ImageZoom.class);
+                Intent intent = new Intent(getBaseContext(), ImageZoom.class);
                 String path = myList.get(position).getImagePath().toString();
                 intent.putExtra("image_path", path);
                 startActivity(intent);
@@ -94,6 +94,7 @@ public class showBillList extends AppCompatActivity {
             myList.add(listItem);
             adapter.notifyDataSetChanged();
         }
+
     }
 
     //Delete function
@@ -111,12 +112,6 @@ public class showBillList extends AppCompatActivity {
         }
         //After deleting, look at the db and reload the listview
         loadListData();
-
-    }
-
-    public void cameraImage(){
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, CAMERA_REQ_CODE);
 
     }
 

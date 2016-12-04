@@ -34,4 +34,5 @@ dependencies {
     compile project(':scanlibrary')
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.1'
     compile files('/home/shreyas/Documents/Expense Tracker/libs/Jama-1.0.3.jar')
+    compile 'com.github.chrisbanes:PhotoView:1.3.1'
 }

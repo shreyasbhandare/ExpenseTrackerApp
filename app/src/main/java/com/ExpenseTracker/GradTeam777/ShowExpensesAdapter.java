@@ -46,7 +46,9 @@ public class ShowExpensesAdapter extends ArrayAdapter<ExpenseListItem> {
 
         String filePath = getItem(position).getImagePath();
         itemImage = (ImageView) row.findViewById(R.id.billImageView);
-        itemImage.setImageBitmap(BitmapFactory.decodeFile(filePath));
+        Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+        bitmap = Bitmap.createScaledBitmap(bitmap,parent.getWidth(),parent.getHeight(),true);
+        itemImage.setImageBitmap(bitmap);
 
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override

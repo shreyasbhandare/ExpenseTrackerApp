@@ -81,7 +81,8 @@ public class PickImageFragment extends Fragment {
 
     private class CameraButtonClickListener implements View.OnClickListener {
         @Override
-        public void onClick(View v) {
+        public void onClick(View v)
+        {
             openCamera();
         }
     }

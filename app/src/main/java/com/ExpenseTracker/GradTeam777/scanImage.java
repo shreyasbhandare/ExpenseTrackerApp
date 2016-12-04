@@ -1,5 +1,8 @@
 package com.ExpenseTracker.GradTeam777;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.googlecode.tesseract.android.TessBaseAPI;
 import com.scanlibrary.ScanActivity;
@@ -34,9 +38,11 @@ public class scanImage extends AppCompatActivity {
     private Button scanButton;
     private Button cameraButton;
     private Button mediaButton;
+    private static final int POP_REQ = 55;
     private TextView scannedTextView;
     public static double Total;
     private parseText parsetext;
+
 
     Uri outputFileUri, rawFileUri;
     private static final String TAG = "MainActivity";
@@ -97,7 +103,7 @@ public class scanImage extends AppCompatActivity {
                 Total = startOCR(outputFileUri);
 
                 // start pop up activity for reviewing scanned Total
-                startActivity(new Intent(this,Pop.class));
+                startActivityForResult(new Intent(this,Pop.class),POP_REQ);
             } catch (IOException e) {
                 e.printStackTrace();
             }

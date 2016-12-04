@@ -12,24 +12,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="02133e944df191f695544d7a247715882059d8ef">
-        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d5330c6037fff7038b90e9cb27e86c08a883c6da/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/libs/internal_impl-23.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="5d4bccb885c8a89d066ecb6c4addb553a99a79a2">
-        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_c4b274d41dcf3707e5397b93a4eecf3a1761afe9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -48,6 +30,60 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/shreyas/Documents/Expense Tracker/libs/Jama-1.0.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4e7b3b81770450a21b4295e27c2ccb802ab537e1">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/2/Jama-1.0.3_0e804df792c5e4c2c31c698ae145ccb7e2bbb7c4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/jars/libs/internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_77f13784def598b7c1b3e145d4ca1683220905ad/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.0.1_230d72936b93d7ff2e5fcce32cc658628fce4821/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.github.chrisbanes/PhotoView/1.3.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a6b765967c8091ebb45f2c02972a2fa9cba5dd87">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.chrisbanes-PhotoView-1.3.1_78bbaace212d4c59e17e36f700f0180a8c707736/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="83c9a290e3043c8a2298029ec8647cf3425cdb74">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d5330c6037fff7038b90e9cb27e86c08a883c6da/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5d4bccb885c8a89d066ecb6c4addb553a99a79a2">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_c4b274d41dcf3707e5397b93a4eecf3a1761afe9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
         jumboMode="true"
         optimize="true"
@@ -61,17 +97,8 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="c42ca12277ab1dfdd39ee855e620810aeb1b566a">
+        sha1="80eae7bc5f3b9d748758cd410c6e246a5ce0d639">
         <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b6191ed8fc6cf71999f85a4dd9f572bc59c350ec/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/shreyas/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.0.1_a357f1f749ac6bb99c7534a04bde7d896ae3985a/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -84,21 +111,39 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/shreyas/Documents/Expense Tracker/libs/Jama-1.0.3.jar"
+        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars/libs/internal_impl-25.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="4e7b3b81770450a21b4295e27c2ccb802ab537e1">
-        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/2/Jama-1.0.3_0e804df792c5e4c2c31c698ae145ccb7e2bbb7c4/classes.dex" />
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_03b507075826d65b805d72c856837450c3dcb41b/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.0.1_230d72936b93d7ff2e5fcce32cc658628fce4821/classes.dex" />
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.0_a5c9a8cb6b8df906c5ae63ea19e307c24056d078/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.0/support-annotations-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.0_03af3a820c56785e1a793c91b3d2b6e5914e3edc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.0_1c306c254b572b200483263650207db9bd9d1ebb/classes.dex" />
     </item>
 
 </items>

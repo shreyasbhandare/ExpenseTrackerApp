@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
-    static final int MY_REQUEST_CODE = 1; // code for camera permissions
+
     static final int SCAN_IMAGE = 3; // code for scan image activity
     static final int SHOW_EXP = 4; // code for predict expenses activity
     static final int SHOW_BILL = 5; // code for show bill list activity
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String DATA_PATH = Environment.getExternalStorageDirectory().toString()+ "/OCR/";
     public static final String lang = "eng";
+    static final int MY_REQUEST_CODE = 1; // code for camera permissions
 
     Button scanBill, predExp, showBills, addMan;
 
@@ -54,13 +55,11 @@ public class MainActivity extends AppCompatActivity {
         showBills = (Button) findViewById(R.id.show_bills);
         addMan = (Button) findViewById(R.id.add_man);
 
-        isStoragePermissionGranted();
-
+        //isStoragePermissionGranted();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA)
                     != PackageManager.PERMISSION_GRANTED) {
-
-                requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_REQUEST_CODE);
+                requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_REQUEST_CODE);
             }
         }
 
@@ -124,25 +123,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
+        if(grantResults.length>0 && grantResults[0]== PackageManager.PERMISSION_GRANTED){
             Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
 
-            //---------------prepare directory---------------------
             prepareDirectory(DATA_PATH + "tessdata/");
 
             //----------------------train------------------------
             copyData();
-        }
-        else if (requestCode == MY_REQUEST_CODE) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Now user should be able to use camera
-            }
-            else {
-                Toast.makeText(this,"Can't Access Camera!",Toast.LENGTH_SHORT).show();
-                // app will not have this permission. Turn off all functions
-                // that require this permission or it will force close like your
-                // original question
-            }
+            Log.v(TAG,"DATA TRAINED");
+
         }
     }
 

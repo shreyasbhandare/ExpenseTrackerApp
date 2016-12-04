@@ -1,6 +1,7 @@
 package com.ExpenseTracker.GradTeam777;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,11 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import uk.co.senab.photoview.PhotoViewAttacher;
+
 public class ImageZoom extends AppCompatActivity {
 
     private String imgPath;
     private ImageView zoomView;
-    private Button back;
+    PhotoViewAttacher attacher;
+    //private Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,15 +24,20 @@ public class ImageZoom extends AppCompatActivity {
 
         imgPath = getIntent().getExtras().getString("image_path");
         zoomView = (ImageView) findViewById(R.id.zoomImage);
-        zoomView.setImageBitmap(BitmapFactory.decodeFile(imgPath));
+        Bitmap bitmap = BitmapFactory.decodeFile(imgPath);
+        bitmap = Bitmap.createScaledBitmap(bitmap,400,600,true);
+        zoomView.setImageBitmap(bitmap);
+
+        attacher = new PhotoViewAttacher(zoomView);
+        /*
         back = (Button) findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ImageZoom.this,MainActivity.class);
+                Intent intent = new Intent(ImageZoom.this,showBillList.class);
                 startActivity(intent);
             }
         });
-
+        */
     }
 }

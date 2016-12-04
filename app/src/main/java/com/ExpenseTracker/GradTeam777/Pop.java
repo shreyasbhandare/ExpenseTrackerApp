@@ -1,6 +1,8 @@
 package com.ExpenseTracker.GradTeam777;
 
 import android.app.ActionBar;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +27,7 @@ public class Pop extends AppCompatActivity {
     private Button addButton;
     SQLiteDatabaseHelper myDB;
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+    Intent returnIntent = new Intent();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,15 +56,19 @@ public class Pop extends AppCompatActivity {
                     //add scanned total to DB
                     Calendar c = Calendar.getInstance();
                     String formattedDate = sdf.format(c.getTime());
-                    myDB.insertEntry(formattedDate,Total,filePath.toString());
+                    String path = filePath.toString().substring(7);
+                    myDB.insertEntry(formattedDate,Total,path);
                 }
                 else{
                     //add manually entered total to DB
                     Calendar c = Calendar.getInstance();
                     double manTotal = Double.parseDouble(str);
                     String formattedDate = sdf.format(c.getTime());
-                    myDB.insertEntry(formattedDate,manTotal,filePath.toString());
+                    String path = filePath.toString().substring(7);
+                    myDB.insertEntry(formattedDate,manTotal,path);
                 }
+                setResult(Activity.RESULT_OK,returnIntent);
+                finish();
             }
         });
 
