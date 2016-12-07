@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "898275950394",
+    "firebase_url": "https://expense-tracker-9fe31.firebaseio.com",
+    "project_id": "expense-tracker-9fe31",
+    "storage_bucket": "expense-tracker-9fe31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898275950394:android:b2716e4e7e5a0ed6",
+        "android_client_info": {
+          "package_name": "com.ExpenseTracker.GradTeam777"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898275950394-kkb847sl16d6icku6eur3urtnijeka0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBj4NLyNM_j8mwyG0SYuwEYNRlKgGilRZ8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

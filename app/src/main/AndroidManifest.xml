@@ -34,10 +34,11 @@
         <activity android:name=".scanImage" />
         <activity
             android:name=".Pop"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
+            android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".showExpenses" />
         <activity android:name=".showBillList" />
-        <activity android:name=".ImageZoom"></activity>
+        <activity android:name=".ImageZoom" />
+        <activity android:name=".QueryActivity"></activity>
     </application>
 
 </manifest>

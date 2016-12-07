@@ -6,7 +6,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/back">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,49 +22,22 @@
                 android:layout_height="wrap_content"
                 android:text="DATE"
                 android:textSize="20dp"
-                android:background="@drawable/background"
+                android:textColor="#FFFFFF"
                 android:gravity="center"
-                android:layout_gravity="center"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
+            <EditText
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
+                android:id="@+id/edtDte"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:hint="Pick Date"
+                android:focusable="false"
                 android:background="@drawable/background"
-                android:layout_marginLeft="60dp">
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:id="@+id/month"
-                    android:hint="MM"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="/"
-                    android:textSize="20dp"/>
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:id="@+id/date"
-                    android:hint="DD"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="/"
-                    android:textSize="20dp"/>
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:id="@+id/year"
-                    android:hint="YYYY"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="..."
-                    android:id="@+id/pickdate"
-                    android:onClick="showDatePickerDialog"/>
-            </LinearLayout>
+                android:layout_marginStart="70dp"
+                android:gravity="center"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,14 +46,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Amount (In $)"
-                android:textSize="20dp"
-                android:background="@drawable/background"/>
+                android:text="AMOUNT(IN $)"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:id="@+id/amount"
+
                 android:hint="Amount"
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/background"
@@ -97,10 +73,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="Have a Bill?"
+            android:text="HAVE A BILL?"
+            android:textStyle="bold"
             android:textSize="20dp"
-            android:background="@drawable/background"/>
-
+            android:textColor="#FFFFFF"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scan your bill"
+            android:textSize="20dp"
+            android:id="@+id/scan_button"
+            android:background="@drawable/mybutton"
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
 
     <LinearLayout

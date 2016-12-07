@@ -197,6 +197,11 @@ public class MainActivity extends AppCompatActivity {
         String img_path = root + "/" + fname;
         return Uri.fromFile(new File(img_path));
     }
+    public void query_click(View view)
+    {
+        Intent intent = new Intent(this, QueryActivity.class);
+        startActivity(intent);
+    }
 }
 
 

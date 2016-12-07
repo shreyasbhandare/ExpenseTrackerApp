@@ -1,6 +1,7 @@
 package com.ExpenseTracker.GradTeam777;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
 import android.app.DialogFragment;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -20,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,10 +34,13 @@ import com.scanlibrary.ScanConstants;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Random;
 
-public class scanImage extends AppCompatActivity implements DatePickerFragment.update {
+public class scanImage extends AppCompatActivity{
 
     private static final int REQUEST_CODE = 99;
     private Button scanButton;
@@ -45,17 +50,16 @@ public class scanImage extends AppCompatActivity implements DatePickerFragment.u
     public static double Total;
     private parseText parsetext;
 
-    EditText month;
-    EditText date;
-    EditText year;
+
     EditText amount;
+    EditText edtDate;
     Button add_button;
     Button scan_button;
-    String mm;
-    String dd;
-    String yy;
+    String dt;
     String amn;
     SQLiteDatabaseHelper myDB;
+
+    final Calendar c=Calendar.getInstance();
 
     Uri outputFileUri, rawFileUri;
     private static final String TAG = "MainActivity";
@@ -74,37 +78,26 @@ public class scanImage extends AppCompatActivity implements DatePickerFragment.u
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mm=month.getText().toString();
-                dd=date.getText().toString();
-                yy=year.getText().toString();
                 amn=amount.getText().toString();
+                dt=edtDate.getText().toString();
 
-                String toShow="You bought for $ "+amn+" on "+mm+"/"+dd+"/"+yy;
-
-                if(!isDouble(amn) || mm.equals("") || dd.equals("") || yy.equals("")){
-                    Toast.makeText(getApplicationContext(),"Enter All Details Properly!",Toast.LENGTH_SHORT).show();
+                if(!isDouble(amn) || amn.equals("") || dt.equals("")){
+                    Toast.makeText(scanImage.this,"Enter All Details Properly!",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     double amt = Double.parseDouble(amn);
-                    String date=mm+"/"+dd+"/"+yy;
                     String url = "/storage/emulated/0/OCR/Receipts/NoBill.jpg";
-                    myDB.insertEntry(date,amt,url);
+                    myDB.insertEntry(dt,amt,url);
                 }
-                month.setText("");
-                date.setText("");
-                year.setText("");
-                amount.setText("");
             }
         });
     }
 
     private void init() {
         //manual add options
-        month=(EditText)findViewById(R.id.month);
-        date=(EditText)findViewById(R.id.date);
-        year=(EditText)findViewById(R.id.year);
         amount=(EditText)findViewById(R.id.amount);
         add_button=(Button)findViewById(R.id.add_button);
+        edtDate=(EditText)findViewById(R.id.edtDte);
 
         // scan options
         scanButton = (Button) findViewById(R.id.scanButton);
@@ -113,8 +106,31 @@ public class scanImage extends AppCompatActivity implements DatePickerFragment.u
         cameraButton.setOnClickListener(new ScanButtonClickListener(ScanConstants.OPEN_CAMERA));
         mediaButton = (Button) findViewById(R.id.mediaButton);
         mediaButton.setOnClickListener(new ScanButtonClickListener(ScanConstants.OPEN_MEDIA));
+
+        edtDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(scanImage.this, date,
+                        c.get( Calendar.YEAR ), c.get( Calendar.MONTH ), c.get( Calendar.DAY_OF_MONTH ) ).show();
+            }
+        });
     }
 
+    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth ) {
+            c.set( Calendar.YEAR, year );
+            c.set( Calendar.MONTH, monthOfYear );
+            c.set( Calendar.DAY_OF_MONTH, dayOfMonth );
+            setCurrentDateOnView();
+        }
+    };
+
+    public void setCurrentDateOnView() {
+        String dateFormat = "MM/dd/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat, Locale.US);
+        edtDate.setText(sdf.format(c.getTime()));
+    }
     private class ScanButtonClickListener implements View.OnClickListener {
 
         private int preference;
@@ -268,16 +284,5 @@ public class scanImage extends AppCompatActivity implements DatePickerFragment.u
         }
     }
 
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getFragmentManager(),"datePicker");
-    }
-    public void updated(ArrayList<String> list){
-        String mon=list.get(0);
-        String day=list.get(1);
-        String yr=list.get(2);
-        month.setText(mon);
-        date.setText(day);
-        year.setText(yr);
-    }
+
 }

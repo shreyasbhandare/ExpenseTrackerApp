@@ -3,19 +3,23 @@ package com.ExpenseTracker.GradTeam777;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class showExpenses extends AppCompatActivity {
+public class showExpenses extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener{
 
     PolynomialRegression regression;
     TextView predTxt;
@@ -23,6 +27,7 @@ public class showExpenses extends AppCompatActivity {
     BarChart barchart;
     double[] xList;
     double[] yList;
+    ArrayList<String> ydata=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +65,11 @@ public class showExpenses extends AppCompatActivity {
             //String day = date.substring(4,5);
             xList[count]=Double.parseDouble(result.getString(0));
             yList[count]=Double.parseDouble(result.getString(2));
+            String d=result.getString(1);
+            ydata.add(d);
             count++;
         }
+
     }
 
     public void showGraph(){
@@ -78,13 +86,47 @@ public class showExpenses extends AppCompatActivity {
             barEntries.add(new BarEntry(i,b));
         }
 
-        BarDataSet barDataSet=new BarDataSet(barEntries,"Values");
 
+        BarDataSet barDataSet=new BarDataSet(barEntries,"AMOUNT ($)");
         BarData theData=new BarData(barDataSet);
         barchart.setData(theData);
 
         barchart.setTouchEnabled(true);
         barchart.setDragEnabled(true);
         barchart.setScaleEnabled(true);
+        barchart.getAxisRight().setDrawLabels(false);
+        Description description = new Description();
+        description.setText("DATE");
+        barchart.setDescription(description);
+
+        XAxis xAxis = barchart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+// what I want
+
+        xAxis.setValueFormatter(new IAxisValueFormatter() {
+
+
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                String date[]=ydata.get((int)value).split("/");
+                String d=date[0]+"/"+date[1];
+                return d;
+            }
+        });
+
+    }
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        // TODO Auto-generated method stub
+
+    }
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+    }
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        // TODO Auto-generated method stub
+
     }
 }

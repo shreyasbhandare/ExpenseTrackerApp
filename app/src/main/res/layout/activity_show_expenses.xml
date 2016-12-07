@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_show_expenses"
@@ -9,18 +13,41 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.ExpenseTracker.GradTeam777.showExpenses">
-
+    tools:context="com.ExpenseTracker.GradTeam777.showExpenses"
+    android:background="@drawable/back">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Your Past Expenditure:"
+    android:textStyle="bold"
+    android:textSize="20dp"
+    android:textColor="#FFFFFF"/>
     <com.github.mikephil.charting.charts.BarChart
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:id="@+id/bargraph">
 
     </com.github.mikephil.charting.charts.BarChart>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textStyle="bold"
+    android:textSize="12dp"
+    android:textColor="#FFFFFF"
+    android:text="YOUR PREDICTED EXPENDITURE FOR NEXT WEEK IS: "/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/predictTxt"/>
+        android:id="@+id/predictTxt"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:textColor="#FFFFFF"/>
+    </LinearLayout>
 
 </LinearLayout>
+</ScrollView>
