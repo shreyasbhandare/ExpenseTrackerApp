@@ -8,9 +8,12 @@ import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,7 +24,7 @@ import static com.scanlibrary.UriClass.filePath;
 /**
  * Created by shreyas on 12/1/16.
  */
-public class Pop extends AppCompatActivity {
+public class Pop extends Activity {
     private TextView popUpText;
     private EditText editTotal;
     private Button addButton;
@@ -33,6 +36,8 @@ public class Pop extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popupwindow);
+
+
         myDB = new SQLiteDatabaseHelper(this);
 
 
@@ -51,6 +56,7 @@ public class Pop extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String str = editTotal.getText().toString();
+                double manTotal=0;
                 //code to add total and date to database
                 if(str.equals("")){
                     //add scanned total to DB
@@ -62,10 +68,17 @@ public class Pop extends AppCompatActivity {
                 else{
                     //add manually entered total to DB
                     Calendar c = Calendar.getInstance();
-                    double manTotal = Double.parseDouble(str);
-                    String formattedDate = sdf.format(c.getTime());
-                    String path = filePath.toString().substring(7);
-                    myDB.insertEntry(formattedDate,manTotal,path);
+                    if(isDouble(str)) {
+                        manTotal = Double.parseDouble(str);
+                        String formattedDate = sdf.format(c.getTime());
+                        String path = filePath.toString().substring(7);
+                        myDB.insertEntry(formattedDate, manTotal, path);
+                    }
+                    else
+                    {
+                        Toast.makeText(getBaseContext(),"Plesae Enter Valid Amount Next Time!",Toast.LENGTH_SHORT).show();
+                    }
+
                 }
                 setResult(Activity.RESULT_OK,returnIntent);
                 finish();
@@ -81,11 +94,20 @@ public class Pop extends AppCompatActivity {
 
     public void setPopUpText(double total){
         if(total==-1){
-            popUpText.setText("Sorry, Couldn't scan the Total!\nPlease try again with the clear image!");
+            popUpText.setText("Sorry, Couldn't scan the Total!\nPlease add Manually!");
         }
         else{
             popUpText.setText("Scanned Total is "+total+"$\nEdit if not correct and press Add!");
         }
         return;
+    }
+
+    boolean isDouble(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

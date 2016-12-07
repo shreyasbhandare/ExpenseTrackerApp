@@ -34,10 +34,9 @@
         <activity android:name=".scanImage" />
         <activity
             android:name=".Pop"
-            android:theme="@style/AppTheme.CustomTheme" />
+            android:theme="@style/AppTheme.CustomTheme"></activity>
         <activity android:name=".showExpenses" />
         <activity android:name=".showBillList" />
-        <activity android:name=".addManually" />
         <activity android:name=".ImageZoom"></activity>
     </application>
 

@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class parseText {
     private String rawText;
     private double total;
-    private String[] trainArray = {"total","subtotal","otal","tal","tot","tota","ota","sub","subt","subto","sumom","mom"};
+    private String[] trainArray = {"total","subtotal","otal","tal","tot","tota","ota","sub","subt","subto","sumom","mom", "amount","mount","ount","amo","amou"};
     //private ArrayList<String>subString = new ArrayList<Integer>(Arrays.asList(""));
 
     //constructor

@@ -15,28 +15,21 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Scan Bills"
+        android:text="Add Bill"
         android:layout_marginBottom="25dp"
         android:id="@+id/scan_btn"/>
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Add Extra Expenses"
-        android:layout_marginBottom="25dp"
-        android:id="@+id/add_man"/>
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Show Bills"
+        android:text="My Bills"
         android:layout_marginBottom="25dp"
         android:id="@+id/show_bills"/>
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Predict Expenses"
+        android:text="Predict"
         android:id="@+id/show_exp"/>
 
 </LinearLayout>

@@ -94,7 +94,6 @@ public class showBillList extends AppCompatActivity {
             myList.add(listItem);
             adapter.notifyDataSetChanged();
         }
-
     }
 
     //Delete function

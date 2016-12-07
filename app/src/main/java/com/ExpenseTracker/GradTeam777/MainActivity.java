@@ -33,17 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
-
     static final int SCAN_IMAGE = 3; // code for scan image activity
     static final int SHOW_EXP = 4; // code for predict expenses activity
     static final int SHOW_BILL = 5; // code for show bill list activity
-    static final int ADD_MAN = 6; // code for add manually bills activity
 
     public static final String DATA_PATH = Environment.getExternalStorageDirectory().toString()+ "/OCR/";
     public static final String lang = "eng";
     static final int MY_REQUEST_CODE = 1; // code for camera permissions
 
-    Button scanBill, predExp, showBills, addMan;
+    Button scanBill, predExp, showBills;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         scanBill = (Button) findViewById(R.id.scan_btn);
         predExp = (Button) findViewById(R.id.show_exp);
         showBills = (Button) findViewById(R.id.show_bills);
-        addMan = (Button) findViewById(R.id.add_man);
 
         //isStoragePermissionGranted();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -84,14 +81,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, showBillList.class);
                 startActivityForResult(intent,SHOW_BILL);
-            }
-        });
-
-        addMan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, addManually.class);
-                startActivityForResult(intent,ADD_MAN);
             }
         });
     }
@@ -148,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void copyData(){
-        if (!(new File(DATA_PATH + "tessdata/" + lang + ".traineddata")).exists()) {
+        if (!(new File(DATA_PATH + "tessdata/" + lang + ".traineddata")).exists() || !(new File(DATA_PATH + "Receipts/NoBill.jpg").exists())) {
             try {
 
                 AssetManager assetManager = getAssets();
@@ -167,11 +156,46 @@ public class MainActivity extends AppCompatActivity {
                 in.close();
                 out.close();
 
+                InputStream istr;
+                Bitmap noImage = null;
+                try {
+                    istr = assetManager.open("no-image.jpg");
+                    noImage = BitmapFactory.decodeStream(istr);
+                } catch (IOException e) {
+                    // handle exception
+                }
+
+                Uri noImageUri = SaveImage(noImage);
+
                 Log.v(TAG, "Copied " + lang + " traineddata");
             } catch (IOException e) {
                 Log.e(TAG, "Was unable to copy " + lang + " traineddata " + e.toString());
             }
         }
+
+    }
+
+    private Uri SaveImage(Bitmap finalBitmap) {
+
+        String root = Environment.getExternalStorageDirectory().toString()+"/OCR/Receipts/";
+        File myDir = new File(root);
+        myDir.mkdirs();
+
+        String fname = "NoBill.jpg";
+        File file = new File (myDir, fname);
+        if (file.exists ()) file.delete ();
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            out.flush();
+            out.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        String img_path = root + "/" + fname;
+        return Uri.fromFile(new File(img_path));
     }
 }
 

@@ -29,15 +29,5 @@ public class ImageZoom extends AppCompatActivity {
         zoomView.setImageBitmap(bitmap);
 
         attacher = new PhotoViewAttacher(zoomView);
-        /*
-        back = (Button) findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ImageZoom.this,showBillList.class);
-                startActivity(intent);
-            }
-        });
-        */
     }
 }
