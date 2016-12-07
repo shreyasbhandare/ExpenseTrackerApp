@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 
+    /*
     public  boolean isStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         return true;
-    }
+    }*/
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -120,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
             //----------------------train------------------------
             copyData();
             Log.v(TAG,"DATA TRAINED");
-
         }
     }
 
@@ -165,7 +165,13 @@ public class MainActivity extends AppCompatActivity {
                     // handle exception
                 }
 
-                Uri noImageUri = SaveImage(noImage);
+                //saving no bill image
+                SaveImage(noImage);
+
+                //saving default week data
+                copyWeeklyData();
+
+
 
                 Log.v(TAG, "Copied " + lang + " traineddata");
             } catch (IOException e) {
@@ -175,8 +181,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private Uri SaveImage(Bitmap finalBitmap) {
-
+    private void SaveImage(Bitmap finalBitmap) {
         String root = Environment.getExternalStorageDirectory().toString()+"/OCR/Receipts/";
         File myDir = new File(root);
         myDir.mkdirs();
@@ -193,10 +198,19 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        String img_path = root + "/" + fname;
-        return Uri.fromFile(new File(img_path));
     }
+
+    public void copyWeeklyData(){
+        SQLiteDatabaseHelper helper = new SQLiteDatabaseHelper(getApplicationContext());
+        double[] amt = {50.23,20.76,30.34,50.11,40.465,50.13,19.34,60,59.24,22.45,65.24,15.67,34.44,38.99,25.73,50.22,79.11,3.4,30.22};
+        String[] dates = {"10/03/2016","10/07/2016","10/10/2016","10/12/2016","10/18/2016","10/22/2016","10/25/2016","10/27/2016","10/31/2016","11/04/2016","11/09/2016","11/10/2016","11/14/2016","11/18/2016","11/21/2016","11/22/2016","11/28/2016","12/02/2016","12/07/2016"};
+        String url = "/storage/emulated/0/OCR/Receipts/NoBill.jpg";
+
+        for(int i=0;i<amt.length;i++){
+            helper.insertEntry(dates[i],amt[i],url);
+        }
+    }
+
     public void query_click(View view)
     {
         Intent intent = new Intent(this, QueryActivity.class);

@@ -89,6 +89,8 @@ public class scanImage extends AppCompatActivity{
                     String url = "/storage/emulated/0/OCR/Receipts/NoBill.jpg";
                     myDB.insertEntry(dt,amt,url);
                 }
+                amount.setText("");
+                edtDate.setText("");
             }
         });
     }

@@ -3,6 +3,7 @@ package com.ExpenseTracker.GradTeam777;;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,9 +47,11 @@ public class ShowExpensesAdapter extends ArrayAdapter<ExpenseListItem> {
 
         String filePath = getItem(position).getImagePath();
         itemImage = (ImageView) row.findViewById(R.id.billImageView);
-        Bitmap bitmap = BitmapFactory.decodeFile(filePath);
-        bitmap = Bitmap.createScaledBitmap(bitmap,60,60,true);
-        itemImage.setImageBitmap(bitmap);
+        //ASync task to load image
+        new LoadImageTask(filePath,itemImage).execute();
+        //Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+        //bitmap = Bitmap.createScaledBitmap(bitmap,60,60,true);
+        //itemImage.setImageBitmap(bitmap);
 
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,5 +64,33 @@ public class ShowExpensesAdapter extends ArrayAdapter<ExpenseListItem> {
             }
         });
         return row;
+    }
+
+    //Async task to load the image
+    private class LoadImageTask extends AsyncTask<Void, Void, Bitmap> {
+
+        private String imgFilePath;
+        private ImageView thumbnail;
+
+        public LoadImageTask(String path, ImageView itemImage){
+            this.imgFilePath = path;
+            this.thumbnail = itemImage;
+        }
+
+        @Override
+        protected Bitmap doInBackground(Void... params) {
+
+            Bitmap bitmap = BitmapFactory.decodeFile(imgFilePath);
+            //Check if necessary
+            bitmap = Bitmap.createScaledBitmap(bitmap,85,85,true);
+            return bitmap;
+        }
+
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            super.onPostExecute(result);
+            thumbnail.setImageBitmap(result);
+        }
     }
 }

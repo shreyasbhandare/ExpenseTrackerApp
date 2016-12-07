@@ -38,5 +38,8 @@ dependencies {
     compile 'com.google.firebase:firebase-core:9.8.0'
     compile 'com.google.firebase:firebase-database:9.8.0'
     compile 'com.google.firebase:firebase-storage:9.8.0'
+    compile 'joda-time:joda-time:2.4'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
+
 }
 apply plugin: 'com.google.gms.google-services'
