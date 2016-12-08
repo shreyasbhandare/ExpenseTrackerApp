@@ -18,7 +18,7 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import static com.ExpenseTracker.GradTeam777.scanImage.Total;
+import static com.ExpenseTracker.GradTeam777.addFrag.Total;
 import static com.scanlibrary.UriClass.filePath;
 
 /**

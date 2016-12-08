@@ -5,66 +5,13 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:gravity="center"
-    tools:context="com.ExpenseTracker.GradTeam777.MainActivity"
-    android:background="@drawable/back">
+    tools:context="com.ExpenseTracker.GradTeam777.MainActivity">
 
-    <Button
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scan_btn"
-        android:background="@drawable/mybutton"
-        android:layout_marginTop="200dp"
-        android:text="ADD BILL"
-        android:textStyle="bold"
-        android:textSize="27dp"
-        />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scan_btn"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp"
-        android:text="MY BILLS"
-        android:textStyle="bold"
-        android:textSize="27dp"
-        android:id="@+id/show_bills"
-
-        android:background="@drawable/mybutton"/>
-
-
-
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:id="@+id/show_exp"
-        android:layout_below="@+id/show_bills"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="PREDICT"
-        android:textStyle="bold"
-        android:textSize="27dp"
-
-        android:background="@drawable/mybutton"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:id="@+id/query_button"
-        android:layout_below="@+id/show_exp"
-        android:onClick="query_click"
-        android:text="CONTACT US"
-        android:textStyle="bold"
-        android:textSize="27dp"
-        android:background="@drawable/mybutton"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/frame">
+    </FrameLayout>
 
 </LinearLayout>

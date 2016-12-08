@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -134,7 +135,12 @@ public class PickImageFragment extends Fragment {
 
                     case ScanConstants.PICKFILE_REQUEST_CODE:
                         bitmap = getBitmap(data.getData());
-                        filePath = data.getData();
+                        Uri tempUri = data.getData();
+                        /*BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inSampleSize = 4; // 1 - means max size. 4 - means maxsize/4 size. Don't use value <4, because you need more memory in the heap to store your data.
+                        Bitmap bitmapp = BitmapFactory.decodeFile(tempUri.getPath(), options);*/
+                        Bitmap bm = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),tempUri);
+                        filePath = SaveImage(bm);
                         break;
                 }
             } catch (Exception e
@@ -163,5 +169,30 @@ public class PickImageFragment extends Fragment {
                 = BitmapFactory.decodeFileDescriptor(
                 fileDescriptor.getFileDescriptor(), null, options);
         return original;
+    }
+
+    public Uri SaveImage(Bitmap finalBitmap) {
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new
+                Date());
+        String root = ScanConstants.IMAGE_PATH;
+        File myDir = new File(root);
+        myDir.mkdirs();
+
+        String fname = "IMG_" + timeStamp + ".jpg";
+        File file = new File (myDir, fname);
+        if (file.exists ()) file.delete ();
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+            out.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        String img_path = root + "/" + fname;
+        return Uri.fromFile(new File(img_path));
     }
 }

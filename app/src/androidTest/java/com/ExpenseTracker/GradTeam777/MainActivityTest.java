@@ -1,4 +1,4 @@
-package com.ashomok.tesseractsample;
+package com.ExpenseTracker.GradTeam777;
 
 import android.app.Activity;
 import android.content.res.AssetManager;
@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Environment;
 import android.test.ActivityInstrumentationTestCase2;
 import android.util.Log;
+
+import com.ExpenseTracker.GradTeam777.MainActivity;
 
 import junit.framework.Assert;
 
@@ -39,11 +41,15 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 
             for (String fileName : fileList) {
 
+                /*
                 getActivity().outputFileUri = Uri.parse(fileName);
+
 
                 getActivity().onActivityResult(getActivity().PHOTO_REQUEST_CODE, Activity.RESULT_OK, null);
 
                 Log.d(TAG, getActivity().result);
+
+                */
             }
 
         } catch (Exception e) {

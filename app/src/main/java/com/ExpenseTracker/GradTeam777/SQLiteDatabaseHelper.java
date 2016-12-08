@@ -51,10 +51,17 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_NAME,null,content);
     }
 
-    // Custom method to return entries
+    // Custom method to return entries sorted by date
     public Cursor getEntries(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + COLUMN_DATE + " DESC",null);
+        return cursor;
+    }
+
+    // Custom method to return entries sorted by date
+    public Cursor getLatestFirstEntries(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + COLUMN_ID + " DESC",null);
         return cursor;
     }
 

@@ -10,8 +10,7 @@ import java.util.Arrays;
 public class parseText {
     private String rawText;
     private double total;
-    private String[] trainArray = {"total","subtotal","otal","tal","tot","tota","ota","sub","subt","subto","sumom","mom", "amount","mount","ount","amo","amou"};
-    //private ArrayList<String>subString = new ArrayList<Integer>(Arrays.asList(""));
+    String[] trainArray = {"total","subtotal","otal","tal","tot","tota","ota","sub","subt","subto","sumom","mom", "amount","mount","ount","amo","amou", "paid","aid","pai"};
 
     //constructor
     public parseText(String rawText){
@@ -24,11 +23,10 @@ public class parseText {
         for(int i=0; i<lines.length; i++){    // iterate through each line
             String[] element = lines[i].split("\\s+");  // split each line based on blank spaces (tabs, spaces etc)
             for(int j=0;j<element.length;j++){
-                //if(element[j].equalsIgnoreCase("Total") || element[j].equalsIgnoreCase("SubTotal")){
                 // if element contains TOTAL/SUBTOTAL or subtring of it
                 if(contais(element[j])){
                     // if next element is $ then skip and check for element after that and convert to double
-                    if(element[j+1]=="$"){
+                    if(element[j+1].equals("$")){
                         if(isDouble(element[j+2])){
                             total = Double.parseDouble(element[j+2]);
                             return total;
