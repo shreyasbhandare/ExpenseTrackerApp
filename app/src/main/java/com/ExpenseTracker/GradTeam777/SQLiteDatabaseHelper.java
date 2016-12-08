@@ -54,9 +54,17 @@ public class SQLiteDatabaseHelper extends SQLiteOpenHelper {
     // Custom method to return entries
     public Cursor getEntries(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + COLUMN_DATE + " DESC",null);
         return cursor;
     }
+
+    // Custom method to return entries by ascending dates
+    public Cursor getEntriesAsc(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + COLUMN_DATE + " ASC",null);
+        return cursor;
+    }
+
 
     public Integer deleteData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();

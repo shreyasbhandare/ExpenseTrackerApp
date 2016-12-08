@@ -38,7 +38,7 @@
         <activity android:name=".showExpenses" />
         <activity android:name=".showBillList" />
         <activity android:name=".ImageZoom" />
-        <activity android:name=".QueryActivity"></activity>
+        <activity android:name=".contactUs"></activity>
     </application>
 
 </manifest>

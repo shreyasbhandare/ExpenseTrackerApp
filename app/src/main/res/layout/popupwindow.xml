@@ -4,7 +4,15 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:gravity="center"
     android:layout_height="match_parent"
-    android:background="@color/bottom_background_color">
+    android:background="@drawable/back_border">
+
+    <TextView
+        android:layout_width="200dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:id="@+id/amtTxt"/>
 
     <TextView
         android:layout_width="200dp"
@@ -14,9 +22,11 @@
         android:id="@+id/popuptext"/>
 
     <EditText
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_gravity="center"
         android:textAlignment="center"
+        android:hint="Add Manually"
+        android:textSize="15dp"
         android:layout_height="wrap_content"
         android:id="@+id/enterManualTotal"/>
 
@@ -25,6 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="ADD"
+        android:textColor="#FFFFFF"
+        android:background="#1a53ff"
         android:id="@+id/addManualTotal"/>
 
 </LinearLayout>

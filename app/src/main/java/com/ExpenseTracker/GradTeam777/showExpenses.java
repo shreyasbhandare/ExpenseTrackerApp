@@ -25,12 +25,13 @@ import org.w3c.dom.Text;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 public class showExpenses extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener{
 
     PolynomialRegression regression;
-    TextView predTxt;
+    TextView predTxt, sugTxt;
     SQLiteDatabaseHelper helper;
     BarChart barchart;
 
@@ -40,6 +41,7 @@ public class showExpenses extends AppCompatActivity implements SeekBar.OnSeekBar
     String[]dates;
     double[]amounts;
     ArrayList<String>xDates;
+    double predX,predY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class showExpenses extends AppCompatActivity implements SeekBar.OnSeekBar
         setContentView(R.layout.activity_show_expenses);
         helper = new SQLiteDatabaseHelper(getApplicationContext());
         predTxt = (TextView) findViewById(R.id.predictTxt);
+        sugTxt = (TextView) findViewById(R.id.suggestTxt);
 
         xDates = new ArrayList<>();
         loadDBData();
@@ -68,15 +71,19 @@ public class showExpenses extends AppCompatActivity implements SeekBar.OnSeekBar
 
         regression = new PolynomialRegression(xList, yList, 3);
         int size = xList.length;
-        double predX = xList[size-1]+1;
+        predX = xList[size-1]+1;
 
-        double predY = regression.predict(predX);
-        predTxt.setText("YOUR PREDICTED EXPENDITURE FOR NEXT WEEK IS: $ "+predY);
+        predY = regression.predict(predX);
+        predY = Math.round(predY*100.0)/100.0;
+        predTxt.setText(" $ "+predY);
+        sugTxt.setText(suggest());
+
+
     }
 
     public void loadDBData(){
 
-        Cursor result = helper.getEntries();
+        Cursor result = helper.getEntriesAsc();
         int count=0;
 
         dates = new String[result.getCount()];
@@ -187,5 +194,17 @@ public class showExpenses extends AppCompatActivity implements SeekBar.OnSeekBar
         LocalDate monday = now.withDayOfWeek(DateTimeConstants.SUNDAY);
         String lastDate = monday.toString(dtf);
         return lastDate;
+    }
+
+    public String suggest(){
+        String suggest;
+        if(predY>amtWeekly.get(amtWeekly.size()-1)){
+            suggest = "Your Next Week Expenditure is going to be higher! Please spend carefully!";
+
+        }
+        else{
+            suggest = "Your Next Week Expenditure is going to be lower! Keep it Up!";
+        }
+        return suggest;
     }
 }

@@ -106,7 +106,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="aa9e877d38e3cf49a2270fa03436feb532fccae2">
+        sha1="c6ff9a0951381e55defffe481df83bb2827161b2">
         <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b6191ed8fc6cf71999f85a4dd9f572bc59c350ec/classes.dex" />
     </item>
     <item
@@ -232,7 +232,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="e5f058085769b557fd4f3f5da04eb90403bc3952">
+        sha1="f2832eed34f83e38a3c079650b1cf98b617d5e82">
         <dex dex="/home/shreyas/Documents/Expense Tracker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d5330c6037fff7038b90e9cb27e86c08a883c6da/classes.dex" />
     </item>
     <item

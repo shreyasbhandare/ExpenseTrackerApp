@@ -43,12 +43,14 @@ import java.util.Random;
 public class scanImage extends AppCompatActivity{
 
     private static final int REQUEST_CODE = 99;
-    private Button scanButton;
+    //private Button scanButton;
     private Button cameraButton;
     private Button mediaButton;
     private static final int POP_REQ = 55;
     public static double Total;
     private parseText parsetext;
+
+    TessBaseAPI tessBaseAPI;
 
 
     EditText amount;
@@ -73,6 +75,7 @@ public class scanImage extends AppCompatActivity{
         setContentView(R.layout.activity_scan_image);
         myDB = new SQLiteDatabaseHelper(getApplicationContext());
         init();
+        trainData();
 
 
         add_button.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +94,7 @@ public class scanImage extends AppCompatActivity{
                 }
                 amount.setText("");
                 edtDate.setText("");
+                Toast.makeText(getApplicationContext(),"Record Added!",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -102,8 +106,8 @@ public class scanImage extends AppCompatActivity{
         edtDate=(EditText)findViewById(R.id.edtDte);
 
         // scan options
-        scanButton = (Button) findViewById(R.id.scanButton);
-        scanButton.setOnClickListener(new ScanButtonClickListener());
+        //scanButton = (Button) findViewById(R.id.scanButton);
+        //scanButton.setOnClickListener(new ScanButtonClickListener());
         cameraButton = (Button) findViewById(R.id.cameraButton);
         cameraButton.setOnClickListener(new ScanButtonClickListener(ScanConstants.OPEN_CAMERA));
         mediaButton = (Button) findViewById(R.id.mediaButton);
@@ -202,13 +206,15 @@ public class scanImage extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
-    public String detectText(Bitmap bitmap) {
-
-        //TessDataManager.initTessTrainedData(context);
-        TessBaseAPI tessBaseAPI = new TessBaseAPI();
+    public void trainData(){
+        tessBaseAPI = new TessBaseAPI();
 
         tessBaseAPI.setDebug(true);
         tessBaseAPI.init(DATA_PATH, lang); //Init the Tess with the trained data file, with english language
+    }
+    public String detectText(Bitmap bitmap) {
+
+        //TessDataManager.initTessTrainedData(context);
 
         tessBaseAPI.setImage(bitmap);
 

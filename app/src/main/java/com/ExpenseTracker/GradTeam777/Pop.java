@@ -25,7 +25,7 @@ import static com.scanlibrary.UriClass.filePath;
  * Created by shreyas on 12/1/16.
  */
 public class Pop extends Activity {
-    private TextView popUpText;
+    private TextView popUpText, amtTxt;
     private EditText editTotal;
     private Button addButton;
     SQLiteDatabaseHelper myDB;
@@ -49,6 +49,7 @@ public class Pop extends Activity {
         getWindow().setLayout((int)(width*.6),(int)(height*.6));
 
         popUpText = (TextView) findViewById(R.id.popuptext);
+        amtTxt = (TextView) findViewById(R.id.amtTxt);
         editTotal = (EditText) findViewById(R.id.enterManualTotal);
         addButton = (Button) findViewById(R.id.addManualTotal);
 
@@ -80,6 +81,7 @@ public class Pop extends Activity {
                     }
 
                 }
+                Toast.makeText(getApplicationContext(),"Record Added!",Toast.LENGTH_SHORT).show();
                 setResult(Activity.RESULT_OK,returnIntent);
                 finish();
             }
@@ -94,10 +96,11 @@ public class Pop extends Activity {
 
     public void setPopUpText(double total){
         if(total==-1){
-            popUpText.setText("Sorry, Couldn't scan the Total!\nPlease add Manually!");
+            popUpText.setText("Sorry, Couldn't scan the Total!");
         }
         else{
-            popUpText.setText("Scanned Total is "+total+"$\nEdit if not correct and press Add!");
+            amtTxt.setText("$ "+total);
+            popUpText.setText("is your Bill Amount?");
         }
         return;
     }
