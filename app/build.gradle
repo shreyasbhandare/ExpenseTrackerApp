@@ -9,7 +9,12 @@ android {
         minSdkVersion 17
         targetSdkVersion 23
         versionCode 4
+        multiDexEnabled true
+
         versionName "1.0.2"
+        ndk {
+            abiFilters "armeabi-v7a", "x86", "armeabi", "mips"
+        }
     }
     buildTypes {
         release {
@@ -28,9 +33,11 @@ allprojects {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':scanlibrary')
-    compile files('/home/shreyas/Documents/Expense Tracker/libs/Jama-1.0.3.jar')
+    compile group: 'gov.nist.math', name: 'jama', version: '1.0.2'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
-
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.rmtheis:tess-two:5.4.1'
     compile 'com.android.support:support-v13:23.4.0'
@@ -40,7 +47,7 @@ dependencies {
     compile 'com.google.firebase:firebase-database:9.8.0'
     compile 'com.google.firebase:firebase-storage:9.8.0'
     compile 'joda-time:joda-time:2.4'
-    compile 'com.android.support:support-v4:23.4.0'
     testCompile 'junit:junit:4.12'
 }
+
 apply plugin: 'com.google.gms.google-services'

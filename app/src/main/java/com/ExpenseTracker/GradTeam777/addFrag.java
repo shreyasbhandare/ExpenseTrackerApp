@@ -104,10 +104,10 @@ public class addFrag extends Fragment {
                     double amt = Double.parseDouble(amn);
                     String url = "/storage/emulated/0/OCR/Receipts/NoBill.jpg";
                     myDB.insertEntry(dt,amt,url);
+                    Toast.makeText(getContext(),"Record Added!",Toast.LENGTH_SHORT).show();
                 }
                 amount.setText("");
                 edtDate.setText("");
-                Toast.makeText(getContext(),"Record Added!",Toast.LENGTH_SHORT).show();
             }
         });
     }
